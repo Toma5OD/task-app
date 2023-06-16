@@ -1,59 +1,45 @@
-<script>
-	import { goto } from '$app/navigation';
-	import { auth } from '../lib/firebaseConfig';
-	import { GoogleAuthProvider, FacebookAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+<script lang="ts">
+    import { auth } from '../lib/firebaseConfig';
+    import { goto } from '$app/navigation';
+    import { GoogleAuthProvider, FacebookAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 
-	let email = '';
-	let password = '';
+    let email = '';
+    let password = '';
 
-	const login = async (event) => {
-		event.preventDefault();
-		try {
-			await signInWithEmailAndPassword(auth, email, password);
-			goto('/dashboard');
-		} catch (error) {
-			if (typeof error === 'object' && error !== null && 'message' in error) {
-				console.error('Error logging in: ', error.message);
-			} else {
-				console.error('Error logging in');
-			}
-		}
-	};
+    const login = async (event: Event) => {
+        event.preventDefault();
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            goto('/dashboard');
+        } catch (error: any) {
+            console.error('Error logging in: ', error.message);
+        }
+    };
 
-	const loginWithGoogle = async () => {
-		const provider = new GoogleAuthProvider();
-		try {
-			await signInWithPopup(auth, provider);
-			goto('/dashboard');
-		} catch (error) {
-			if (typeof error === 'object' && error !== null && 'message' in error) {
-				console.error('Error logging in with Google: ', error.message);
-			} else {
-				console.error('Error logging in');
-			}
-		}
-	};
+    const loginWithGoogle = async () => {
+        const provider = new GoogleAuthProvider();
+        try {
+            await signInWithPopup(auth, provider);
+            goto('/dashboard');
+        } catch (error: any) {
+            console.error('Error logging in with Google: ', error.message);
+        }
+    };
 
-	const loginWithFacebook = async () => {
-		const provider = new FacebookAuthProvider();
-		try {
-			await signInWithPopup(auth, provider);
-			goto('/dashboard');
-		} catch (error) {
-			if (typeof error === 'object' && error !== null && 'message' in error) {
-				console.error('Error logging in with Facebook: ', error.message);
-			} else {
-				console.error('Error logging in');
-			}
-		}
-	};
+    const loginWithFacebook = async () => {
+        const provider = new FacebookAuthProvider();
+        try {
+            await signInWithPopup(auth, provider);
+            goto('/dashboard');
+        } catch (error: any) {
+            console.error('Error logging in with Facebook: ', error.message);
+        }
+    };
 
-	const goToSignup = () => {
-		goto('/signup');
-	};
+    const goToSignup = () => {
+        goto('/signup');
+    };
 </script>
-
-
 
 <div class="container mx-auto p-8 space-y-8">
 	<div class="lg:grid lg:grid-cols-12 lg:gap-x-5">
