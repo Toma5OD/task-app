@@ -54,27 +54,6 @@
     };
 </script>
 
-<style>
-    @import 'skeleton-css/css/skeleton.css';
-    
-    body {
-      background-color: #f0f0f0;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    .completed {
-      text-decoration: line-through;
-    }
-    .logout-button {
-      margin-top: 20px;
-    }
-</style>
-
 <div class="container">
     <div class="row">
       <div class="one-half column">
