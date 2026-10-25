@@ -81,3 +81,5 @@ dist
 .DS_Store
 
 
+
+.svelte-kit/

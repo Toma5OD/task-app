@@ -4,8 +4,6 @@
   import { session } from "../lib/sessionStore";
   import { auth } from "../lib/firebaseConfig"; 
   import { AppShell } from "@skeletonlabs/skeleton";
-  import "@skeletonlabs/skeleton/themes/theme-skeleton.css";
-  import "@skeletonlabs/skeleton/styles/skeleton.css";
   import "../app.postcss";
 
   onMount(() => {
